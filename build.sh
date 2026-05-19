@@ -10,4 +10,7 @@ python manage.py migrate --noinput
 echo "=== Recolectando archivos estaticos ==="
 python manage.py collectstatic --noinput
 
+echo "=== Cargando datos iniciales ==="
+python manage.py seed_data
+
 echo "=== Build completado ==="
