@@ -65,6 +65,15 @@
                 Imagen del producto
             </label>
 
+            <div style="background: rgba(56,189,248,0.08); border-left: 3px solid #38bdf8; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; font-size: 13px; color: #cbd5e1; line-height: 1.7;">
+                <strong style="color: #38bdf8;">¿Cómo poner la imagen?</strong><br>
+                1. Andá a <a href="https://cloudinary.com" target="_blank" style="color: #38bdf8;">Cloudinary</a> (cuenta gratuita)<br>
+                2. Subí la imagen en <strong>Media Library → Upload</strong><br>
+                3. Copiá la <strong>URL</strong> que te da (termina en .jpg o .png)<br>
+                4. Pegala acá abajo en <em>"URL de la imagen"</em><br>
+                <span style="color: #94a3b8;">También podés elegir una de las imágenes predefinidas.</span>
+            </div>
+
             <div class="panel-form-group">
                 <label for="{{ form.prod_imagen.id_for_label }}">Subir imagen (máx. 2 MB)</label>
                 {{ form.prod_imagen }}
@@ -83,7 +92,7 @@
             </div>
 
             <div class="panel-form-group">
-                <label for="{{ form.prod_imagen_url.id_for_label }}">O URL de imagen (externa o predefinida)</label>
+                <label for="{{ form.prod_imagen_url.id_for_label }}">URL de la imagen (recomendado)</label>
                 {{ form.prod_imagen_url }}
                 {% if form.prod_imagen_url.errors %}
                 <p style="font-size:11px; color:#f87171; margin-top:4px;">{{ form.prod_imagen_url.errors.0 }}</p>

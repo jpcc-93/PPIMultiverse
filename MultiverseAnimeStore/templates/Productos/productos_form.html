@@ -54,6 +54,15 @@
             Imagen del producto
         </label>
 
+        <div style="background: #eff6ff; border-left: 3px solid #0ea5e9; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; font-size: 13px; color: #475569; line-height: 1.7;">
+            <strong style="color: #0ea5e9;">¿Cómo poner la imagen?</strong><br>
+            1. Andá a <a href="https://cloudinary.com" target="_blank" style="color: #0ea5e9;">Cloudinary</a> (cuenta gratuita)<br>
+            2. Subí la imagen en <strong>Media Library → Upload</strong><br>
+            3. Copiá la <strong>URL</strong> que te da (termina en .jpg o .png)<br>
+            4. Pegala acá abajo en <em>"URL de la imagen"</em><br>
+            <span style="color: #94a3b8;">También podés elegir una de las imágenes predefinidas.</span>
+        </div>
+
         <div class="form-floating">
             {{ form.prod_imagen }}
             <label for="{{ form.prod_imagen.id_for_label }}">Subir imagen (máx. 2 MB)</label>
@@ -73,10 +82,10 @@
 
         <div class="form-floating">
             {{ form.prod_imagen_url }}
-            <label for="{{ form.prod_imagen_url.id_for_label }}">O URL de imagen (externa o predefinida)</label>
+            <label for="{{ form.prod_imagen_url.id_for_label }}">URL de la imagen (recomendado)</label>
         </div>
 
-        <p style="font-size: 12px; color: #64748b; margin: 8px 0 16px 0;">Pega una URL de imagen o selecciona uno de los diseños predefinidos abajo.</p>
+        <p style="font-size: 12px; color: #64748b; margin: 8px 0 16px 0;">Pegá la URL de Cloudinary o elegí un diseño predefinido.</p>
 
         <label style="font-weight: 600; font-size: 13px; color: #475569; display: block; margin-bottom: 10px;">Diseños predefinidos:</label>
         <div class="placeholder-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 16px;">

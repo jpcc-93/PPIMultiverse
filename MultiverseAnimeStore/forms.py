@@ -255,12 +255,14 @@ class ProductosForm(forms.ModelForm):
         self.fields['prod_stock'].required = False
         self.fields['prod_descripcion'].required = False
         self.fields['prod_imagen'].required = False
+        self.fields['prod_imagen'].label = 'Subir imagen desde mi PC (opcional — no recomendado en web)'
         self.fields['prod_imagen_url'].required = False
+        self.fields['prod_imagen_url'].label = 'URL de la imagen (recomendado — usar Cloudinary)'
         self.fields['prod_destacado'].required = False
         for field in self.fields.values():
             field.widget.attrs.update({'class': 'form-control'})
         self.fields['prod_precio_venta'].widget = forms.TextInput(attrs={'class': 'form-control', 'inputmode': 'numeric'})
-        self.fields['prod_imagen_url'].widget.attrs.update({'placeholder': 'https://ejemplo.com/imagen.jpg'})
+        self.fields['prod_imagen_url'].widget.attrs.update({'placeholder': 'https://res.cloudinary.com/.../imagen.jpg'})
 
         for field in self.fields.values():
             field.widget.attrs.update({'placeholder': ' '})
@@ -271,6 +273,12 @@ class ProductosForm(forms.ModelForm):
             if imagen.size > 2 * 1024 * 1024:
                 raise forms.ValidationError('La imagen no puede superar los 2 MB.')
         return imagen
+
+    def clean_prod_imagen_url(self):
+        url = self.cleaned_data.get('prod_imagen_url', '').strip()
+        if url and not (url.startswith('http://') or url.startswith('https://')):
+            raise forms.ValidationError('La URL debe empezar con http:// o https://')
+        return url
 
     def clean_prod_precio_venta(self):
         valor = self.cleaned_data.get('prod_precio_venta')
