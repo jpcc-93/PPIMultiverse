@@ -241,7 +241,7 @@ class CategoriaForm(forms.ModelForm):
 class ProductosForm(forms.ModelForm):
     class Meta:
         model = Productos
-        fields = ['prod_id', 'prod_nombre', 'prod_descripcion', 'prod_precio_venta', 'prod_stock', 'prod_descuento', 'cat', 'prod_imagen', 'prod_imagen_url', 'prod_destacado']
+        fields = ['prod_id', 'prod_nombre', 'prod_descripcion', 'prod_precio_venta', 'prod_stock', 'cat', 'prod_imagen', 'prod_imagen_url', 'prod_destacado']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

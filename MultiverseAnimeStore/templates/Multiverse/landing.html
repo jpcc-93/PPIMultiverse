@@ -276,14 +276,26 @@ body {
 </section>
 
 <!-- 4. SOCIAL -->
-<section class="container">
-    <div class="social-v5">
-        <h2 style="font-weight: 900; font-style: italic; text-transform: uppercase;">Únete a la Comunidad</h2>
-        <div class="social-pills-v5">
-            <a href="http://instagram.com/multiverseanimestore/" target="_blank" class="pill-social">📸 Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=100070582506827" target="_blank" class="pill-social">👍 Facebook</a>
-            <a href="https://wa.me/573155102831" target="_blank" class="pill-social">💬 WhatsApp</a>
-        </div>
+<section class="container mb-5">
+    <div class="section-header-v4">
+        <h2>Únete a la Comunidad</h2>
+    </div>
+    <div class="social-grid">
+        <a href="http://instagram.com/multiverseanimestore/" target="_blank" class="social-card" data-brand="instagram">
+            <div class="social-icon" style="background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);">📸</div>
+            <span class="social-name">Instagram</span>
+            <span class="social-handle">@multiverseanimestore</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100070582506827" target="_blank" class="social-card" data-brand="facebook">
+            <div class="social-icon" style="background: #1877f2;">👍</div>
+            <span class="social-name">Facebook</span>
+            <span class="social-handle">Multiverse Anime Store</span>
+        </a>
+        <a href="https://wa.me/573155102831" target="_blank" class="social-card" data-brand="whatsapp">
+            <div class="social-icon" style="background: #25d366;">💬</div>
+            <span class="social-name">WhatsApp</span>
+            <span class="social-handle">+57 315 5102831</span>
+        </a>
     </div>
 </section>
 
@@ -340,13 +352,60 @@ body {
         border: 1px solid var(--border-soft);
         min-height: 260px;
     }
+    .social-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .social-card {
+        background: #fff;
+        border: 1px solid var(--border-soft);
+        border-radius: var(--card-radius);
+        padding: 40px 24px 32px;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .social-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+    }
+    .social-card .social-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        transition: transform 0.3s;
+        margin-bottom: 4px;
+    }
+    .social-card:hover .social-icon {
+        transform: scale(1.12);
+    }
+    .social-card .social-name {
+        font-weight: 900;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    .social-card .social-handle {
+        font-size: 13px;
+        color: #64748b;
+    }
+    .social-card[data-brand="instagram"]:hover { border-color: #e4405f; }
+    .social-card[data-brand="facebook"]:hover  { border-color: #1877f2; }
+    .social-card[data-brand="whatsapp"]:hover   { border-color: #25d366; }
     @media (max-width: 768px) {
-        .store-grid {
-            grid-template-columns: 1fr;
-        }
-        .store-map {
-            min-height: 220px;
-        }
+        .store-grid { grid-template-columns: 1fr; }
+        .store-map { min-height: 220px; }
+        .social-grid { grid-template-columns: 1fr; }
     }
 </style>
 
