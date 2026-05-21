@@ -275,7 +275,7 @@ class ProductosForm(forms.ModelForm):
         return imagen
 
     def clean_prod_imagen_url(self):
-        url = self.cleaned_data.get('prod_imagen_url', '').strip()
+        url = (self.cleaned_data.get('prod_imagen_url') or '').strip()
         if url and not (url.startswith('http://') or url.startswith('https://')):
             raise forms.ValidationError('La URL debe empezar con http:// o https://')
         return url

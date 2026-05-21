@@ -26,7 +26,7 @@ cookies.txt
 # Documentation generated files
 *.svg
 *.dot
-*.png
+docs/*.png
 *.dbd
 run_*.sh
 make_*.sh
