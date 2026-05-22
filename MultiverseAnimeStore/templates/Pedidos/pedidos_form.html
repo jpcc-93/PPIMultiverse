@@ -36,8 +36,8 @@
             {% for producto in Productos %}
                 <option value="{{ producto.prod_id }}"
                         data-price="{{ producto.prod_precio_venta }}"
-                        data-discount="{{ producto.prod_descuento|default:0 }}">
-                    {{ producto.prod_nombre }} - ${{ producto.prod_precio_venta }} - %{{ producto.prod_descuento|default:"0" }}
+                        data-discount="0">
+                    {{ producto.prod_nombre }} - ${{ producto.prod_precio_venta }}
                 </option>
             {% endfor %}
         </select>

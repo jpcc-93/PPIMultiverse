@@ -67,10 +67,6 @@
 
                 <div class="pd-price">
                     ${{ object.prod_precio_venta|floatformat:0|default:"0" }}
-                    {% if object.prod_descuento and object.prod_descuento > 0 %}
-                        <small>${{ object.prod_precio_venta|floatformat:0 }}</small>
-                        <span style="font-size: 12px; background: #fef2f2; color: #ef4444; padding: 2px 8px; border-radius: 6px; font-weight: 800; margin-left: 8px; vertical-align: middle;">-{{ object.prod_descuento }}%</span>
-                    {% endif %}
                 </div>
 
                 <div class="pd-stock">

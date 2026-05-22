@@ -37,7 +37,6 @@
                 <th>Categoría</th>
                 <th>Precio</th>
                 <th>Stock</th>
-                <th>Desc.</th>
                 <th>Estado</th>
                 <th>Acciones</th>
             </tr>
@@ -54,7 +53,6 @@
                     {% elif p.prod_stock <= 20 %}<span style="color:#fbbf24;">{{ p.prod_stock }}</span>
                     {% else %}<span style="color:#4ade80;">{{ p.prod_stock }}</span>{% endif %}
                 {% else %}—{% endif %}</td>
-                <td>{{ p.prod_descuento|default:"0" }}%</td>
                 <td>
                     {% if p.prod_id in hidden_ids %}
                     <span style="display:inline-block; background:rgba(248,113,113,0.15); color:#f87171; padding:2px 10px; border-radius:6px; font-size:11px; font-weight:700;">Oculto</span>
@@ -66,6 +64,7 @@
                     <div style="display:flex; gap:8px; flex-wrap:wrap;">
                         <a href="{% url 'panel_productos_editar' p.prod_id %}" class="panel-btn panel-btn-primary panel-btn-sm">Editar</a>
                         <a href="{% url 'panel_productos_detalle' p.pk %}" class="panel-btn panel-btn-secondary panel-btn-sm">Ver</a>
+                        <a href="{% url 'panel_productos_eliminar' p.prod_id %}" class="panel-btn panel-btn-sm" style="background:rgba(239,68,68,0.1); color:#f87171; border:1px solid rgba(239,68,68,0.3);">Eliminar</a>
                     </div>
                 </td>
             </tr>

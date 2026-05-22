@@ -1886,6 +1886,24 @@ def panel_productos_editar(request, pk):
 
 
 @Login_requerido()
+def panel_productos_eliminar(request, pk):
+    if getattr(request.user, 'usuario_id_perfil_id', None) != 1:
+        messages.error(request, 'No tienes permiso para acceder a esta sección.')
+        return redirect('home')
+    producto = get_object_or_404(Productos, pk=pk)
+    if request.method == 'POST':
+        nombre = producto.prod_nombre
+        producto.delete()
+        messages.success(request, f'Producto "{nombre}" eliminado permanentemente.')
+        return redirect('panel_productos')
+    return render(request, 'Admin/panel_producto_confirm_delete.html', {
+        'producto': producto,
+        'section': 'productos',
+        'sidebar': 0,
+    })
+
+
+@Login_requerido()
 def panel_usuarios_list(request):
     if getattr(request.user, 'usuario_id_perfil_id', None) != 1:
         messages.error(request, 'No tienes permiso para acceder a esta sección.')
